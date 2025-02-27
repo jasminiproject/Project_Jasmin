@@ -1,17 +1,15 @@
 <?php
-// Connect to MySQL
+
 $conn = new mysqli("localhost", "root", "", "college_info");
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if search form is submitted
+
 if (isset($_POST['search'])) {
     $name = $_POST['search_name'];
 
-    // Fetch age from the database
     $sql = "SELECT age FROM student WHERE name='$name'";
     $result = $conn->query($sql);
 
@@ -23,7 +21,7 @@ if (isset($_POST['search'])) {
     }
 }
 
-// Close connection
+
 $conn->close();
 ?>
 
